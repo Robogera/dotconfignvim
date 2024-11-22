@@ -37,9 +37,9 @@ vim.opt.conceallevel = 1
 vim.opt.updatetime = 300
 
 -- Plugin manager
-require("config.lazy")
+require('config.lazy')
 
 -- Neovide GUI
 if vim.g.neovide then
-  vim.o.guifont = "iMWritingMono Nerd Font:h11"
+  vim.o.guifont = 'iMWritingMono Nerd Font:h11'
 end

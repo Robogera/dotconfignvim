@@ -1,22 +1,17 @@
 return {
-  { 'nvim-lua/plenary.nvim', lazy=true },
+  { 'nvim-lua/plenary.nvim',  lazy = true },
 
-  { 'sindrets/diffview.nvim', lazy=true },
+  { 'sindrets/diffview.nvim', lazy = true },
 
   {
     'catppuccin/nvim',
-    lazy=false,
-    name='catppuccin',
+    lazy = false,
+    name = 'catppuccin',
     config = function()
       vim.cmd.colorscheme 'catppuccin-mocha'
     end,
   },
 
-  {
-    'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    lazy=true
-  },
   {
     'nvim-treesitter/nvim-treesitter',
     opts = {
@@ -41,5 +36,14 @@ return {
       },
     },
   },
+
   { 'folke/which-key.nvim' },
+
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    opts = {},
+  },
+
+  { 'kylechui/nvim-surround' },
 }
