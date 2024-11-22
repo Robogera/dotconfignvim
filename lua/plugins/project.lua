@@ -1,6 +1,11 @@
 return {
   {
     'coffebar/neovim-project',
+    keys = {
+      { '<leader>pp', ':NeovimProjectDiscover<cr>',   desc = 'Show all projects' },
+      { '<leader>pl', ':NeovimProjectLoadRecent<cr>', desc = 'Load last project' },
+      { '<leader>ph', ':NeovimProjectHistory<cr>',    desc = 'Show recent projects' },
+    },
     opts = {
       projects = {
         '~/dev/*',
@@ -15,7 +20,6 @@ return {
     end,
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
-      -- optional picker
       { 'nvim-telescope/telescope.nvim' },
       { 'Shatur/neovim-session-manager' },
     },
