@@ -39,6 +39,25 @@ vim.opt.updatetime = 300
 -- Plugin manager
 require('config.lazy')
 
+-- Diagnostics
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
+local diagnosticSigns = {
+  Error = "",
+  Warning = "",
+  Hint = "",
+  Information = "",
+}
+
+for severity, sign in pairs(diagnosticSigns) do
+  local hlGroup = "DiagnosticSign" .. severity
+  vim.fn.sign_define(hlGroup, { texthl = hlGroup, numhl = hlGroup, text = sign })
+end
+
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostics' })
+
 -- Neovide GUI
 if vim.g.neovide then
   vim.o.guifont = 'iMWritingMono Nerd Font:h11'
