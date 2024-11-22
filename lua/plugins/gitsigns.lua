@@ -25,6 +25,7 @@ return {
 
     },
     opts = {
+      -- TODO: is this really needed?
       on_attach                    = function(bufnr) end,
       signs                        = {
         add          = { text = '▌' },
