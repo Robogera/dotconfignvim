@@ -10,6 +10,7 @@ return {
       projects = {
         '~/dev/*',
         '~/.config/*',
+        '/mnt/c/Users/gera/dev/*',
       },
       picker = {
         type = 'telescope',
