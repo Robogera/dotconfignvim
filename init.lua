@@ -58,6 +58,17 @@ end
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostics' })
 
+-- Theme
+if vim.fn.hostname() == 'HOMESTATION' then
+  if package.loaded['rose-pine'] ~= nil then
+    vim.cmd.colorscheme 'rose-pine'
+  end
+elseif vim.fn.hostname() == 'workstation' then
+  if package.loaded['catppuccin'] ~= nil then
+    vim.cmd.colorscheme 'catppuccin'
+  end
+end
+
 -- Neovide GUI
 if vim.g.neovide then
   vim.o.guifont = 'iMWritingMono Nerd Font:h11'

@@ -5,12 +5,19 @@ return {
 
   {
     'catppuccin/nvim',
-    lazy = false,
     name = 'catppuccin',
-    config = function()
-      vim.cmd.colorscheme 'catppuccin-mocha'
-    end,
+    opts = {},
   },
+
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    opts = {
+      variant = 'moon',
+      dark_variant = 'moon',
+    },
+  },
+
 
   {
     'nvim-treesitter/nvim-treesitter',
