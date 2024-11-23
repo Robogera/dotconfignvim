@@ -71,5 +71,9 @@ end
 
 -- Neovide GUI
 if vim.g.neovide then
-  vim.o.guifont = 'iMWritingMono Nerd Font:h11'
+  if vim.fn.hostname() == 'HOMESTATION' then
+    vim.o.guifont = 'Iosevka Nerd Font Mono:h14'
+  elseif vim.fn.hostname() == 'workstation' then
+    vim.o.guifont = 'iMWritingMono Nerd Font:h11'
+  end
 end
