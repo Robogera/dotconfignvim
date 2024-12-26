@@ -9,6 +9,7 @@ return {
       { '<leader>fb',       function() require('telescope.builtin').buffers() end,                  desc = 'Buffers' },
       { '<leader>fh',       function() require('telescope.builtin').help_tags() end,                desc = 'Help tags' },
       { '<leader>fg',       function() require('telescope.builtin').live_grep() end,                desc = 'Live grep' },
+      { '<leader>fs',       function() require('telescope.builtin').git_status() end,                desc = 'Git status' },
       { '<leader>fc',       function() require('telescope.builtin').git_commits() end,              desc = 'Git commits' },
       { '<leader>fc',       function() require('telescope.builtin').git_bcommits() end,             desc = 'Git commits for buffer',           mode = 'n' },
       -- TODO: what the fuck are x and o modes?
