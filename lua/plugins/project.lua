@@ -10,6 +10,7 @@ return {
       projects = {
         '~/dev/*',
         '~/.config/*',
+        '~/Documents/slavemail/',
         '/mnt/c/Users/gera/dev/*',
       },
       picker = {
