@@ -33,7 +33,21 @@ return {
       local lsp = require 'lspconfig'
       local coq = require 'coq'
       lsp.gopls.setup(coq.lsp_ensure_capabilities({}))
-      lsp.ansiblels.setup(coq.lsp_ensure_capabilities({}))
+      lsp.ansiblels.setup(coq.lsp_ensure_capabilities({
+        on_attach = on_attach,
+        settings = {
+          ansible = {
+            ansibleLint = {
+              enabled = true,
+              -- path = "ansible-lint",
+              -- arguments = "-c ~/.config/ansible-lint",
+            },
+            ansible = {
+              useFullyQualifiedCollectionNames = false,
+            }
+          }
+        },
+      }))
       lsp.clangd.setup(coq.lsp_ensure_capabilities({}))
       lsp.lua_ls.setup(coq.lsp_ensure_capabilities({
         on_attach = on_attach,
