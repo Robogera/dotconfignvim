@@ -19,37 +19,20 @@ return {
       -- { '<leader>gD',     vim.lsp.buf.definition,                             desc = 'Go to definition' },
       -- { '<leader>gi',     vim.lsp.buf.implementation,                         desc = 'Go to implementation' },
       { '<leader>g<C-d>', vim.lsp.buf.type_definition,                        desc = 'Go to type definition' },
-
     },
     dependencies = {
-      { 'ms-jpq/coq_nvim',       branch = 'coq' },
-      { 'ms-jpq/coq.artifacts',  branch = 'artifacts' },
-      { 'ms-jpq/coq.thirdparty', branch = '3p' }
+      { 'echasnovski/mini.completion', version = false },
     },
-    init = function()
-      vim.g.coq_settings = { auto_start = true, }
-    end,
     config = (function(_, _)
+      require('mini.completion').setup()
       local lsp = require 'lspconfig'
-      local coq = require 'coq'
-      lsp.gopls.setup(coq.lsp_ensure_capabilities({}))
-      lsp.ansiblels.setup(coq.lsp_ensure_capabilities({
+      lsp.gopls.setup({
         on_attach = on_attach,
-        settings = {
-          ansible = {
-            ansibleLint = {
-              enabled = true,
-              -- path = "ansible-lint",
-              -- arguments = "-c ~/.config/ansible-lint",
-            },
-            ansible = {
-              useFullyQualifiedCollectionNames = false,
-            }
-          }
-        },
-      }))
-      lsp.clangd.setup(coq.lsp_ensure_capabilities({}))
-      lsp.lua_ls.setup(coq.lsp_ensure_capabilities({
+      })
+      lsp.rust_analyzer.setup({
+        on_attach = on_attach,
+      })
+      lsp.lua_ls.setup({
         on_attach = on_attach,
         settings = {
           Lua = {
@@ -67,7 +50,7 @@ return {
             },
           },
         },
-      }))
+      })
     end),
   },
 }
