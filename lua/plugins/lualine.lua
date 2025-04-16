@@ -1,6 +1,6 @@
 return {
     'nvim-lualine/lualine.nvim',
-    dependencies = 'kyazdani42/nvim-web-devicons',
+    dependencies = {'kyazdani42/nvim-web-devicons',  'echasnovski/mini.base16'},
     opts = {
       options = {
         icons_enabled = true,

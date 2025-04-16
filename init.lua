@@ -42,26 +42,22 @@ require('config.lazy')
 -- Diagnostics
 vim.diagnostic.config({
   virtual_text = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = 'EE',
+      [vim.diagnostic.severity.WARN] = 'WW',
+      [vim.diagnostic.severity.HINT] = 'HH',
+      [vim.diagnostic.severity.INFO] = 'II',
+    }
+  }
 })
-
-local diagnosticSigns = {
-  Error = "",
-  Warning = "",
-  Hint = "",
-  Information = "",
-}
-
-for severity, sign in pairs(diagnosticSigns) do
-  local hlGroup = "DiagnosticSign" .. severity
-  vim.fn.sign_define(hlGroup, { texthl = hlGroup, numhl = hlGroup, text = sign })
-end
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostics' })
 
 -- Theme
 -- if vim.fn.hostname() == 'HOMESTATION' then
 --   if package.loaded['rose-pine'] ~= nil then
-    vim.cmd.colorscheme 'rose-pine'
+    -- vim.cmd.colorscheme 'rose-pine'
 --   end
 -- elseif vim.fn.hostname() == 'workstation' then
 --   if package.loaded['catppuccin'] ~= nil then
